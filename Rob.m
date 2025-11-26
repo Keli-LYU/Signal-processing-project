@@ -1,5 +1,13 @@
-function yrob = Rob(y, fc, Fs)
-% Robotization effect is achieved through the following steps:
+function yrob = Rob(y,fc,Fs);
+
+% Method 1 : Modulation ring
+%
+%Nh=length(y);
+%t=[0:Nh-1]/Fs;t=t';
+
+%yrob = real(y.*exp(-j*2*pi*fc*t)); 
+
+% Method 2 : Robotization effect is achieved through STFT
 % 1. Compute the Short-Time Fourier Transform (STFT) of the signal
 % 2. Keep the magnitude spectrum, but replace the original phase with linear phase
 % 3. Perform inverse transform to get the robotized voice
